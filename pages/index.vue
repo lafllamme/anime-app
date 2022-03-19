@@ -5,12 +5,13 @@ onMounted(() => {
     document.querySelector("#loader").style.display = "none";
     document.querySelector("#content").style.visibility = "visible";
     document.querySelector("body").style.visibility = "visible";
-  }, 450000);
+  }, 4500);
 });
 </script>
 
 <template>
   <div>
+    <link href="http://fonts.cdnfonts.com/css/greatfull" rel="stylesheet" />
     <div id="loader">
       <div id="load">
         <div>G</div>
@@ -58,7 +59,6 @@ onMounted(() => {
 
 //only for this component
 <style lang="scss" scoped>
-@import url("http://fonts.cdnfonts.com/css/hartone-softed");
 #content,
 body {
   visibility: hidden;
@@ -110,8 +110,8 @@ body {
   height: 2.25rem;
   padding-bottom: 5rem;
   opacity: 0;
-  font-family: "Hartone Softed", sans-serif;
-  font-size: 2.5rem;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
   animation: move 2s linear infinite;
   -o-animation: move 2s linear infinite;
   -moz-animation: move 2s linear infinite;
@@ -123,6 +123,7 @@ body {
   -webkit-transform: rotate(180deg);
   background: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
