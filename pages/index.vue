@@ -5,7 +5,7 @@ onMounted(() => {
     document.querySelector("#loader").style.display = "none";
     document.querySelector("#content").style.visibility = "visible";
     document.querySelector("body").style.visibility = "visible";
-  }, 4500);
+  }, 450000);
 });
 </script>
 
@@ -21,8 +21,12 @@ onMounted(() => {
         <div>O</div>
         <div>L</div>
       </div>
-      
-      <img id="loader" class="center" src="https://giffiles.alphacoders.com/121/12161.gif" />
+
+      <img
+        class="center"
+        src="https://giffiles.alphacoders.com/121/12161.gif"
+        width="600px"
+      />
     </div>
     <div id="content">
       <NuxtLayout name="navbar" />
@@ -54,6 +58,7 @@ onMounted(() => {
 
 //only for this component
 <style lang="scss" scoped>
+@import url("http://fonts.cdnfonts.com/css/hartone-softed");
 #content,
 body {
   visibility: hidden;
@@ -61,7 +66,6 @@ body {
 
 #loader {
   visibility: visible;
-  width:  45rem;
   // height: 400px;
 }
 
@@ -104,18 +108,22 @@ body {
   position: absolute;
   width: 1.25rem;
   height: 2.25rem;
+  padding-bottom: 5rem;
   opacity: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-family: "Hartone Softed", sans-serif;
+  font-size: 2.5rem;
   animation: move 2s linear infinite;
   -o-animation: move 2s linear infinite;
   -moz-animation: move 2s linear infinite;
   -webkit-animation: move 2s linear infinite;
+  border: 1px solid rgb(22 22 22);
   transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
-  color: #560df8;
+  background: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #load div:nth-child(2) {
@@ -266,6 +274,8 @@ body {
 <style>
 html {
   background: rgb(22 22 22) !important;
+  /* max-width: 100%;
+    overflow-x: hidden; */
 }
 </style>
 
