@@ -1,6 +1,4 @@
 <script setup>
-import "@/assets/scss/main.scss";
-
 import { onMounted } from "vue";
 onMounted(() => {
   setTimeout(() => {
@@ -59,3 +57,7 @@ onMounted(() => {
   </div>
 </template>
 
+
+ <style scoped lang="scss">
+@import "@/assets/scss/main.scss";
+</style>
