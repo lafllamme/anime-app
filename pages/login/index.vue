@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="bg-base-200"><NuxtLayout name="breadcrumb" /></div>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <div
       class="hero min-h-screen bg-base-200"

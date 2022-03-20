@@ -1,16 +1,24 @@
 <script setup>
 import { onMounted } from "vue";
 onMounted(() => {
+  var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+  // document.querySelector("#body").style.width = width;
+
+  console.log(width);
   setTimeout(() => {
     document.querySelector("#loader").style.display = "none";
     document.querySelector("#content").style.visibility = "visible";
-    document.querySelector("body").style.visibility = "visible";
   }, 2000);
 });
 </script>
 
 <template>
-  <div>
+  <div id="body">
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1.0"
+    />
+
     <link href="http://fonts.cdnfonts.com/css/greatfull" rel="stylesheet" />
     <div id="loader">
       <div id="load">
@@ -74,12 +82,11 @@ onMounted(() => {
 
 @import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
 
-
 h1 {
-  color: #333;
+  color: #fff;
   font-family: source sans pro;
   font-size: 3rem;
-  font-weight: 100;
+  font-weight: 700;
   line-height: 1.5;
   text-transform: uppercase;
   white-space: nowrap;
@@ -88,32 +95,9 @@ h1 {
   width: 500px;
 }
 
-.message {
-  background-color: #fc0;
-  color: #333;
-  display: block;
-  font-weight: 900;
-  overflow: hidden;
-  position: absolute;
-  padding-left: 0.5rem;
-  top: 0.2rem;
-  left: 220px;
-  -webkit-animation: openclose 5s ease-in-out infinite;
-  animation: openclose 5s ease-in-out infinite;
-}
-
-.word1 {
-  font-family: Abril Fatface;
-}
-
-.word2 {
-  font-family: source code pro;
-}
-
-.word3 {
-  font-family: Permanent Marker;
-}
-
+// #body {
+//   min-width: 1050px;
+// }
 @-webkit-keyframes openclose {
   0% {
     top: 0.2rem;
@@ -256,20 +240,6 @@ h1 {
     top: 0;
     width: 0;
   }
-}
-@import url("https://fonts.googleapis.com/css?family=Pacifico");
-
-@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
-
-@import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
-
-h1 {
-  color: white;
-  font-family: source sans pro;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.5;
-  text-transform: uppercase;
 }
 
 .message {
@@ -299,150 +269,6 @@ h1 {
 .word3 {
   font-family: Permanent Marker;
   padding: auto;
-}
-
-@-webkit-keyframes openclose {
-  0% {
-    top: 0.2rem;
-    width: 0;
-  }
-
-  5% {
-    width: 0;
-  }
-
-  15% {
-    width: 230px;
-  }
-
-  30% {
-    top: 0.2rem;
-    width: 230px;
-  }
-
-  33% {
-    top: 0.2rem;
-    width: 0;
-  }
-
-  38% {
-    top: -4.5rem;
-    width: 0;
-  }
-
-  48% {
-    width: 190px;
-  }
-
-  62% {
-    top: -4.5rem;
-    width: 190px;
-  }
-
-  66% {
-    top: -4.5rem;
-    width: 0;
-    text-indent: 0;
-  }
-
-  71% {
-    top: -9rem;
-    width: 0;
-    text-indent: 5px;
-  }
-
-  86% {
-    width: 285px;
-  }
-
-  98% {
-    top: -9rem;
-    width: 285px;
-  }
-
-  99% {
-    text-indent: 5px;
-    top: -9rem;
-    width: 0;
-  }
-
-  100% {
-    text-indent: 0;
-    top: 0;
-    width: 0;
-  }
-}
-
-@keyframes openclose {
-  0% {
-    top: 0.2rem;
-    width: 0;
-  }
-
-  5% {
-    width: 0;
-  }
-
-  15% {
-    width: 230px;
-  }
-
-  30% {
-    top: 0.2rem;
-    width: 230px;
-  }
-
-  33% {
-    top: 0.2rem;
-    width: 0;
-  }
-
-  38% {
-    top: -4.5rem;
-    width: 0;
-  }
-
-  48% {
-    width: 190px;
-  }
-
-  62% {
-    top: -4.5rem;
-    width: 190px;
-  }
-
-  66% {
-    top: -4.5rem;
-    width: 0;
-    text-indent: 0;
-  }
-
-  71% {
-    top: -9rem;
-    width: 0;
-    text-indent: 5px;
-  }
-
-  86% {
-    width: 285px;
-  }
-
-  98% {
-    top: -9rem;
-    width: 285px;
-  }
-
-  99% {
-    text-indent: 5px;
-    top: -9rem;
-    width: 0;
-  }
-
-  100% {
-    text-indent: 0;
-    top: 0;
-    width: 0;
-  }
 }
 </style>
 
