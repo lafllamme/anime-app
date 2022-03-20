@@ -26,7 +26,6 @@ onMounted(() => {
       <img
         class="center"
         src="https://giffiles.alphacoders.com/121/12161.gif"
-        width="600px"
       />
     </div>
     <div id="content">
@@ -40,6 +39,15 @@ onMounted(() => {
           <div class="max-w-md">
             <h1 class="mb-5 text-5xl font-bold" id="opacityAnimation">
               おはようございます
+            </h1>
+
+            <h1>
+              <p class="-ml-60">NEUE</p>
+              <div class="message">
+                <div class="word1">Animes</div>
+                <div class="word2">Mangas</div>
+                <div class="word3">Infos</div>
+              </div>
             </h1>
             <p class="mb-5">
               Willkommen zu unseren neuen Plattform für Animes!<br />
@@ -60,4 +68,381 @@ onMounted(() => {
 
  <style scoped lang="scss">
 @import "@/assets/scss/main.scss";
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
+@import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
+
+
+h1 {
+  color: #333;
+  font-family: source sans pro;
+  font-size: 3rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+}
+
+.message {
+  background-color: #fc0;
+  color: #333;
+  display: block;
+  font-weight: 900;
+  overflow: hidden;
+  position: absolute;
+  padding-left: 0.5rem;
+  top: 0.2rem;
+  left: 220px;
+  -webkit-animation: openclose 5s ease-in-out infinite;
+  animation: openclose 5s ease-in-out infinite;
+}
+
+.word1 {
+  font-family: Abril Fatface;
+}
+
+.word2 {
+  font-family: source code pro;
+}
+
+.word3 {
+  font-family: Permanent Marker;
+}
+
+@-webkit-keyframes openclose {
+  0% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  5% {
+    width: 0;
+  }
+
+  15% {
+    width: 230px;
+  }
+
+  30% {
+    top: 0.2rem;
+    width: 230px;
+  }
+
+  33% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  38% {
+    top: -4.5rem;
+    width: 0;
+  }
+
+  48% {
+    width: 190px;
+  }
+
+  62% {
+    top: -4.5rem;
+    width: 190px;
+  }
+
+  66% {
+    top: -4.5rem;
+    width: 0;
+    text-indent: 0;
+  }
+
+  71% {
+    top: -9rem;
+    width: 0;
+    text-indent: 5px;
+  }
+
+  86% {
+    width: 285px;
+  }
+
+  98% {
+    top: -9rem;
+    width: 285px;
+  }
+
+  99% {
+    text-indent: 5px;
+    top: -9rem;
+    width: 0;
+  }
+
+  100% {
+    text-indent: 0;
+    top: 0;
+    width: 0;
+  }
+}
+
+@keyframes openclose {
+  0% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  5% {
+    width: 0;
+  }
+
+  15% {
+    width: 230px;
+  }
+
+  30% {
+    top: 0.2rem;
+    width: 230px;
+  }
+
+  33% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  38% {
+    top: -4.5rem;
+    width: 0;
+  }
+
+  48% {
+    width: 190px;
+  }
+
+  62% {
+    top: -4.5rem;
+    width: 190px;
+  }
+
+  66% {
+    top: -4.5rem;
+    width: 0;
+    text-indent: 0;
+  }
+
+  71% {
+    top: -9rem;
+    width: 0;
+    text-indent: 5px;
+  }
+
+  86% {
+    width: 285px;
+  }
+
+  98% {
+    top: -9rem;
+    width: 285px;
+  }
+
+  99% {
+    text-indent: 5px;
+    top: -9rem;
+    width: 0;
+  }
+
+  100% {
+    text-indent: 0;
+    top: 0;
+    width: 0;
+  }
+}
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
+@import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
+
+h1 {
+  color: white;
+  font-family: source sans pro;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.message {
+  background-color: rgb(81, 42, 224);
+  color: #fff;
+  display: block;
+  font-weight: 900;
+  overflow: hidden;
+  position: absolute;
+  padding-left: 0.5rem;
+  top: 0.2rem;
+  left: 220px;
+  -webkit-animation: openclose 5s ease-in-out infinite;
+  animation: openclose 5s ease-in-out infinite;
+}
+
+.word1 {
+  font-family: Abril Fatface;
+  padding: auto;
+}
+
+.word2 {
+  font-family: source code pro;
+  padding: auto;
+}
+
+.word3 {
+  font-family: Permanent Marker;
+  padding: auto;
+}
+
+@-webkit-keyframes openclose {
+  0% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  5% {
+    width: 0;
+  }
+
+  15% {
+    width: 230px;
+  }
+
+  30% {
+    top: 0.2rem;
+    width: 230px;
+  }
+
+  33% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  38% {
+    top: -4.5rem;
+    width: 0;
+  }
+
+  48% {
+    width: 190px;
+  }
+
+  62% {
+    top: -4.5rem;
+    width: 190px;
+  }
+
+  66% {
+    top: -4.5rem;
+    width: 0;
+    text-indent: 0;
+  }
+
+  71% {
+    top: -9rem;
+    width: 0;
+    text-indent: 5px;
+  }
+
+  86% {
+    width: 285px;
+  }
+
+  98% {
+    top: -9rem;
+    width: 285px;
+  }
+
+  99% {
+    text-indent: 5px;
+    top: -9rem;
+    width: 0;
+  }
+
+  100% {
+    text-indent: 0;
+    top: 0;
+    width: 0;
+  }
+}
+
+@keyframes openclose {
+  0% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  5% {
+    width: 0;
+  }
+
+  15% {
+    width: 230px;
+  }
+
+  30% {
+    top: 0.2rem;
+    width: 230px;
+  }
+
+  33% {
+    top: 0.2rem;
+    width: 0;
+  }
+
+  38% {
+    top: -4.5rem;
+    width: 0;
+  }
+
+  48% {
+    width: 190px;
+  }
+
+  62% {
+    top: -4.5rem;
+    width: 190px;
+  }
+
+  66% {
+    top: -4.5rem;
+    width: 0;
+    text-indent: 0;
+  }
+
+  71% {
+    top: -9rem;
+    width: 0;
+    text-indent: 5px;
+  }
+
+  86% {
+    width: 285px;
+  }
+
+  98% {
+    top: -9rem;
+    width: 285px;
+  }
+
+  99% {
+    text-indent: 5px;
+    top: -9rem;
+    width: 0;
+  }
+
+  100% {
+    text-indent: 0;
+    top: 0;
+    width: 0;
+  }
+}
 </style>
+
