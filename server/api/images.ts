@@ -19,6 +19,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         "content-type": "application/json",
     })
 
+
     res.write(JSON.stringify(data))
     res.end()
 }

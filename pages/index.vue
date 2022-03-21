@@ -95,9 +95,9 @@ h1 {
   width: 500px;
 }
 
-// #body {
-//   min-width: 1050px;
-// }
+      // #body {
+      //   min-width: 1050px;
+      // }
 @-webkit-keyframes openclose {
   0% {
     top: 0.2rem;
