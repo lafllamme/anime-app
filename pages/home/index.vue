@@ -7,7 +7,18 @@ const myData = ref([]) as any;
 const searchSize = ref(10);
 var intervalChecker = ref(true);
 
-onMounted(() => {});
+onMounted(() => {
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    console.log("Its a Phone!");
+    let searchGrid = document.getElementById("searchGrid");
+    searchGrid.classList.remove("grid-cols-3");
+    searchGrid.classList.add("grid-cols-1");
+  }
+});
 
 async function searchForAnimes() {
   console.log("BEFORE:", intervalChecker.value);
@@ -28,7 +39,16 @@ async function searchForAnimes() {
 }
 </script>
   <template>
-  <div class="bg">
+  <div>
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1.0"
+    />
+    <div class="bg"></div>
+
+    <!-- <div class="content">
+     
+    </div> -->
     <NuxtLayout name="navbar"></NuxtLayout>
     <div class="grid place-items-center h-screen">
       <form
@@ -40,9 +60,11 @@ async function searchForAnimes() {
           type="text"
           id="searchInput"
           v-model="searchText"
-          placeholder="Type here"
-          class="input input-bordered input-primary w-full max-w-xs"
+          placeholder="Naruto..."
+          class="input input-bordered input-primary w-full max-w-lg"
         />
+        <br />
+
         <button id="formBtn" class="btn btn-primary btn-square">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,76 +83,143 @@ async function searchForAnimes() {
         </button>
       </form>
 
-      <div v-for="anime in myData" :key="anime.mal_id">
-        <div class="card card-side bg-base-100 shadow-xl m-4">
-          <figure>
-            <img :src="anime?.image_url" :alt="anime_cover" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">{{ anime?.title }}</h2>
-            <p>{{ anime?.synopsis }}</p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Watch</button>
+      <!-- <label class="label cursor-pointer">
+        <span class="label-text">Red pill</span>
+
+        <input
+          type="radio"
+          name="radio-2"
+          class="radio radio-primary"
+          checked
+        />
+      </label>
+      <label class="label cursor-pointer">
+        <span class="label-text">Red pill</span>
+
+        <input type="radio" name="radio-2" class="radio radio-primary" />
+      </label> -->
+
+      <div>
+        <label for="my-modal-6" class="btn modal-button m-5">Hilfe!</label>
+
+        <!-- Put this part before </body> tag -->
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg text-center mb-6">
+              Wie die Suche funktioniert?
+            </h3>
+            <p class="py-4 px-4 text-center">
+              Du musst nur den Namen der Serie eintippen! Außerdem kannst du
+              auch nach Kategorien filtern
+            </p>
+            <div class="modal-action">
+              <label for="my-modal-6" class="btn">Okay!</label>
             </div>
           </div>
         </div>
       </div>
+      <!-- Loaded Results Start -->
+      <div id="searchGrid" class="grid grid-cols-3 gap-8 m-4">
+        <div v-for="anime in myData" :key="anime.mal_id" class="ml-4 mr-4">
+          <div id="animeCard" class="card lg:card-side bg-base-100 shadow-xl">
+              <img class="object-cover " :src="anime?.image_url" alt="cover" />
+            <div class="card-body">
+              <h2 class="card-title">{{ anime?.title }}</h2>
+              <p>{{ anime?.synopsis.substring(0,255)+".." }}</p>
+
+              <div class="badge badge-outline hover:bg-pink-400">Fashion</div>
+              <div class="badge badge-outline hover:bg-pink-400">Products</div>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">
+                  <a :href="anime?.url">Info</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="animeCard" class="card card-side bg-base-100 shadow-xl m-4">
+            <figure>
+              <img :src="anime?.image_url" alt="anime_cover" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{{ anime?.title }}</h2>
+              <p>{{ anime?.synopsis }}</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Watch</button>
+              </div>
+            </div>
+          </div> -->
+      <!-- Loaded Results End -->
     </div>
   </div>
-  <!-- <div
-      tabindex="0"
-      class="
-        collapse collapse-plus
-        border border-base-300
-        bg-base-100
-        rounded-box
-      "
-    >
-      <div class="collapse-title text-xl font-medium">
-        Focus me to see content
-      </div>
-      <div class="collapse-content">
-        <p>{{ data }}</p>
-      </div>
-    </div>
-  </div> -->
-  <!-- <label
-    for="my-modal"
-    @click="removeMessage('modalMessage')"
-    class="btn modal-button"
-    >open modal</label
-  > -->
-
-  <!-- Put this part before </body> tag -->
-  <!-- <input type="checkbox" id="my-modal" class="modal-toggle" />
-  <div id="modalMessage" class="modal modal-open">
-    <div class="modal-box">
-      <h3 class="font-bold text-lg text-center">Wir benutzen Cookies! 🍪</h3>
-      <p class="py-4 text-center mt-4">
-        Um dir unseren Service anzubieten, darf dein Browser gewisse Daten nicht
-        vergessen.
-      </p>
-      <div class="modal-action mt-2">
-        <label
-          for="my-modal"
-          @click="removeMessage('modalMessage')"
-          class="btn btn-primary"
-          >Yay!</label
-        >
-      </div>
-    </div>
-  </div> -->
 </template>
 
 
 <style scoped lang="scss">
-.carousel-item {
-  width: 15rem !important;
+#animeCard:hover {
+  transform: scale(1.1);
+  transition: 0.7s ease-out;
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+}
+.bg {
+  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  // animation: gradient 15s ease-in-out infinite;
+  // background-size: 400% 400%;
+  // height: 100vh;
+  // left: -50%;
+  // position: fixed;
+  // right: -50%;
+  // top: 0;
+  // z-index: -1;
+  // opacity: 0.6;
+  /* Location of the image */
+  background-position: center center; /* Background image doesn’t tile */
+  background-repeat: no-repeat; /* Background image is fixed in the viewport so that it doesn’t move when the content’s height is greater than the image’s height */
+  background-attachment: fixed; /* This is what makes the background image rescale based on the container’s size */
+  background: url("https://i.pinimg.com/originals/f3/5a/7d/f35a7da260149aedb34c64a3ff4a41b8.gif");
+  // animation: gradient 15s ease-in-out infinite;
+  // background-size: 400% 400%;
+  background-size: cover;
+  opacity: 0.5;
+  height: 100vh;
+  left: -50%;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
 }
 
-.bg {
-  background-size: 100% 100% !important;
-  background: url("https://i.gifer.com/RYX2.gif");
+.content {
+  left: 50%;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>
 
@@ -146,3 +235,4 @@ function removeMessage(id) {
   }
 }
 </script>
+
