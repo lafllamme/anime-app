@@ -120,17 +120,109 @@ async function searchForAnimes() {
         </div>
       </div>
       <!-- Loaded Results Start -->
-      <div id="searchGrid" class="grid grid-cols-3 gap-8 m-4">
-        <div v-for="anime in myData" :key="anime.mal_id" class="ml-4 mr-4">
-          <div id="animeCard" class="card lg:card-side bg-base-100 shadow-xl">
-              <img class="object-cover " :src="anime?.image_url" alt="cover" />
-            <div class="card-body">
-              <h2 class="card-title">{{ anime?.title }}</h2>
-              <p>{{ anime?.synopsis.substring(0,255)+".." }}</p>
+      <div id="searchGrid" class="grid grid-cols-3 gap-7 m-4">
+        <div
+          id="renderAnimeDiv"
+          v-for="anime in myData"
+          :key="anime.mal_id"
+          class="ml-4 mr-4"
+        >
+          <div class="indicator">
+            <span
+              id="notification"
+              class="indicator-item badge badge-accent top-4 p-5 mr-5"
+              >{{ anime?.type }}</span
+            >
 
-              <div class="badge badge-outline hover:bg-pink-400">Fashion</div>
-              <div class="badge badge-outline hover:bg-pink-400">Products</div>
-              <div class="card-actions justify-end">
+            <div
+              id="animeCard"
+              class="card lg:card-side bg-base-100 shadow-xl m-4"
+            >
+              <img
+                id="animeCover"
+                class="object-cover"
+                :src="anime?.image_url"
+                alt="cover"
+              />
+              <div class="card-body">
+                <h2 class="card-title">{{ anime?.title }}</h2>
+                <p>{{ anime?.synopsis.substring(0, 255) + ".." }}</p>
+                <div class="flex justify-center m-5">
+                  <div class="rating rating-sm">
+                    <input
+                      type="radio"
+                      :name="anime?.mal_id"
+                      class="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      :name="anime?.mal_id"
+                      class="mask mask-star-2 bg-orange-400"
+                      checked
+                    />
+                    <input
+                      type="radio"
+                      :name="anime?.mal_id"
+                      class="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      :name="anime?.mal_id"
+                      class="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      :name="anime?.mal_id"
+                      class="mask mask-star-2 bg-orange-400"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 mb-4">
+                  <div
+                    v-if="anime?.airing"
+                    class="
+                      badge badge-primary
+                      hover:bg-primary-focus
+                      px-2
+                      py-4
+                      mr-6
+                    "
+                  >
+                    Läuft noch
+                  </div>
+                  <div
+                    v-else
+                    class="
+                      badge badge-secondary
+                      hover:bg-secondary-focus
+                      px-2
+                      py-4
+                      mr-6
+                    "
+                  >
+                    Abgeschlossen
+                  </div>
+                  <span
+                    class="
+                      badge
+                      bg-info
+                      badge-md
+                      hover:bg-info-content
+                      px-2
+                      py-4
+                      ml-6
+                    "
+                  >
+                    {{
+                      new Date(anime?.start_date).toLocaleDateString("de-DE")
+                    }}</span
+                  >
+                </div>
+
+                <button v-if="anime?.type != 'Movie'" class="btn gap-2">
+                  EPISODEN:
+                  <div class="badge">{{ anime?.episodes }}</div>
+                </button>
                 <button class="btn btn-primary">
                   <a :href="anime?.url">Info</a>
                 </button>
@@ -164,25 +256,19 @@ async function searchForAnimes() {
   transition: 0.7s ease-out;
   background-color: #21d4fd;
   background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  box-shadow: 0 0 2rem #b721ff;
 }
+
+#renderAnimeDiv:hover #notification {
+  visibility: hidden;
+}
+
 .bg {
-  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  // animation: gradient 15s ease-in-out infinite;
-  // background-size: 400% 400%;
-  // height: 100vh;
-  // left: -50%;
-  // position: fixed;
-  // right: -50%;
-  // top: 0;
-  // z-index: -1;
-  // opacity: 0.6;
-  /* Location of the image */
   background-position: center center; /* Background image doesn’t tile */
   background-repeat: no-repeat; /* Background image is fixed in the viewport so that it doesn’t move when the content’s height is greater than the image’s height */
   background-attachment: fixed; /* This is what makes the background image rescale based on the container’s size */
   background: url("https://i.pinimg.com/originals/f3/5a/7d/f35a7da260149aedb34c64a3ff4a41b8.gif");
-  // animation: gradient 15s ease-in-out infinite;
-  // background-size: 400% 400%;
+
   background-size: cover;
   opacity: 0.5;
   height: 100vh;

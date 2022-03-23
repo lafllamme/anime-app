@@ -14,6 +14,7 @@
     "dependencies": {
         "@mattplays/aniapi": "^2.0.4",
         "daisyui": "^2.11.0",
+        "moment": "^2.29.1",
         "mysql2": "^2.3.3",
         "sass": "^1.49.9"
     },
