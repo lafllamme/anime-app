@@ -2,7 +2,7 @@
   <div class="text-sm breadcrumbs">
     <ul>
       <li>
-        <a href="/">
+        <NuxtLink to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -17,7 +17,7 @@
             ></path>
           </svg>
           Home
-        </a>
+        </NuxtLink>
       </li>
       <li>
         <NuxtLink to="/login">

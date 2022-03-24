@@ -3,7 +3,7 @@
     <div class="bg-base-200"><NuxtLayout name="breadcrumb" /></div>
     <div
       class="hero min-h-screen bg-base-200"
-      style="background-image: url(https://pic.re/image)"
+      style="background-image: url(https://wallpaperaccess.com/full/39033.png)"
     >
       <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

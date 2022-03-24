@@ -14,12 +14,12 @@ onMounted(() => {
 
 <template>
   <div id="body">
+    <!-- Fixes Samsung Device Width -->
     <meta
       name="viewport"
       content="user-scalable=no, width=device-width, initial-scale=1.0"
     />
-
-    <link href="http://fonts.cdnfonts.com/css/greatfull" rel="stylesheet" />
+    <!-- Loading Screen -->
     <div id="loader">
       <div id="load">
         <div>G</div>
@@ -30,44 +30,49 @@ onMounted(() => {
         <div>O</div>
         <div>L</div>
       </div>
-
       <img
         class="center"
-        src="https://giffiles.alphacoders.com/121/12161.gif"
+        src="@/assets/images/loading.gif"
+        id="loadingAnimation"
       />
     </div>
+
+    <!-- Main Content -->
     <div id="content">
-      <NuxtLayout name="navbar" />
+      <NuxtLayout name="navbar-login" />
       <div
-        class="hero min-h-screen"
-        style="background-image: url(https://pic.re/image)"
+        id="background"
+        class="hero min-h-screen min-w-full place-content-center"
       >
-        <div class="hero-overlay bg-opacity-60"></div>
-        <div class="hero-content text-center text-neutral-content">
-          <div class="max-w-md">
-            <h1 class="mb-5 text-5xl font-bold" id="opacityAnimation">
+        <!-- <div class="hero-overlay bg-opacity-60"></div> -->
+        <div
+          class="hero-content text-center text-neutral-content relative -top-40"
+        >
+          <div class="max-w-prose">
+            <h1 id="welcomeTitle" class="mb-5 text-4xl font-extrabold">
               おはようございます
             </h1>
 
-            <h1>
-              <p class="-ml-60">NEUE</p>
-              <div class="message">
+            <h1 id="welcomeBanner">
+              <p class="mr-40">NEUE</p>
+              <div class="message ml-4 ">
                 <div class="word1">Animes</div>
                 <div class="word2">Mangas</div>
                 <div class="word3">Infos</div>
               </div>
             </h1>
-            <p class="mb-5">
+            <p class="mb-5 mt-6 px-16">
               Willkommen zu unseren neuen Plattform für Animes!<br />
               Du findest hier alles zu neue Folgen, Anime-Serien oder Mangas.
             </p>
 
-            <NuxtLink to="/login">
+            <!-- <NuxtLink to="/login">
               <button class="btn btn-primary">Los Geht's</button>
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
         </div>
       </div>
+
       <NuxtLayout name="footer" />
     </div>
   </div>
@@ -82,7 +87,16 @@ onMounted(() => {
 
 @import url("https://fonts.googleapis.com/css?family=Abril\+Fatface");
 
-h1 {
+#welcomeTitle {
+  font-family: source sans pro;
+  // font-size: 3rem;
+  // font-weight: 700;
+  // line-height: 1.5;
+  white-space: nowrap;
+  animation: visible 4s ease infinite;
+}
+
+#welcomeBanner {
   color: #fff;
   font-family: source sans pro;
   font-size: 3rem;
@@ -95,9 +109,6 @@ h1 {
   width: 500px;
 }
 
-      // #body {
-      //   min-width: 1050px;
-      // }
 @-webkit-keyframes openclose {
   0% {
     top: 0.2rem;
@@ -245,7 +256,6 @@ h1 {
 .message {
   background-color: rgb(81, 42, 224);
   color: #fff;
-  display: block;
   font-weight: 900;
   overflow: hidden;
   position: absolute;
@@ -269,6 +279,20 @@ h1 {
 .word3 {
   font-family: Permanent Marker;
   padding: auto;
+}
+
+#background {
+  background: url("@/assets/images/background.webp"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
+}
+
+@font-face {
+  font-family: "Greatfull";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Greatfull"),
+    url("https://fonts.cdnfonts.com/s/77739/greatfull.woff") format("woff");
 }
 </style>
 
