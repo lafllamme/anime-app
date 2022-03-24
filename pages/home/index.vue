@@ -60,7 +60,7 @@ async function searchForAnimes() {
           type="text"
           id="searchInput"
           v-model="searchText"
-          placeholder="Naruto..."
+          placeholder="Tipp einen Namen..."
           class="input input-bordered input-primary w-full max-w-lg"
         />
         <br />
@@ -82,7 +82,17 @@ async function searchForAnimes() {
           </svg>
         </button>
       </form>
+      <div class="content">
+        <div class="content__container">
+          <p class="content__container__text">Ich suche...</p>
 
+          <ul class="content__container__list ml-12">
+            <li class="content__container__list__item ">Boruto</li>
+            <li class="content__container__list__item">Bleach</li>
+            <li class="content__container__list__item">AOT</li>
+          </ul>
+        </div>
+      </div>
       <!-- <label class="label cursor-pointer">
         <span class="label-text">Red pill</span>
 
@@ -263,28 +273,262 @@ async function searchForAnimes() {
   visibility: hidden;
 }
 
-.bg {
-  background-position: center center; /* Background image doesn’t tile */
-  background-repeat: no-repeat; /* Background image is fixed in the viewport so that it doesn’t move when the content’s height is greater than the image’s height */
-  background-attachment: fixed; /* This is what makes the background image rescale based on the container’s size */
-  background: url("https://i.pinimg.com/originals/f3/5a/7d/f35a7da260149aedb34c64a3ff4a41b8.gif");
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
 
-  background-size: cover;
-  opacity: 0.5;
+  font-family: "Lato", sans-serif;
+  font-size: 35px;
+  line-height: 40px;
+  color: #ecf0f1;
+
+  &__container {
+    font-weight: 600;
+    overflow: hidden;
+    height: 40px;
+    padding: 0 40px;
+
+    &:before {
+      content: "[";
+      left: 0;
+    }
+
+    &:after {
+      content: "]";
+      position: absolute;
+      right: 0;
+    }
+
+    &:after,
+    &:before {
+      position: absolute;
+      top: 0;
+
+      color: #16a085;
+      font-size: 42px;
+      line-height: 32px;
+
+      -webkit-animation-name: opacity;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-name: opacity;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+
+    &__text {
+      display: inline;
+      float: left;
+      margin: 0;
+    }
+
+    &__list {
+      margin-top: 0;
+      margin-left: 190px;
+      word-spacing: 30px;
+
+      text-align: left;
+      list-style: none;
+
+      -webkit-animation-name: change;
+      -webkit-animation-duration: 10s;
+      -webkit-animation-iteration-count: infinite;
+      animation-name: change;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+
+      &__item {
+        line-height: 40px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes opacity {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes change {
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+@-o-keyframes opacity {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes change {
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+@-moz-keyframes opacity {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes change {
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+@keyframes opacity {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes change {
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+.bg {
+  // background-position: center center; /* Background image doesn’t tile */
+  // background-repeat: no-repeat; /* Background image is fixed in the viewport so that it doesn’t move when the content’s height is greater than the image’s height */
+  // background-attachment: fixed; /* This is what makes the background image rescale based on the container’s size */
+  // background: url("https://i.pinimg.com/originals/f3/5a/7d/f35a7da260149aedb34c64a3ff4a41b8.gif");
+
+  opacity: 0.8;
   height: 100vh;
   left: -50%;
   position: fixed;
   right: -50%;
   top: 0;
   z-index: -1;
-}
+  background: linear-gradient(-45deg, #2b0635, #68072e, #042d3b, #00523f);
+  background-size: 400% 400%;
+  animation: gradient 15s ease-in-out infinite;
+  height: 100vh;
 
-.content {
-  left: 50%;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 @keyframes slide {
