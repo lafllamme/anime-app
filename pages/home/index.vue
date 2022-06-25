@@ -87,7 +87,7 @@ async function searchForAnimes() {
           <p class="content__container__text">Ich suche...</p>
 
           <ul class="content__container__list ml-12">
-            <li class="content__container__list__item ">Boruto</li>
+            <li class="content__container__list__item">Boruto</li>
             <li class="content__container__list__item">Bleach</li>
             <li class="content__container__list__item">AOT</li>
           </ul>
